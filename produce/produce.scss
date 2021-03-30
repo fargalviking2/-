@@ -49,7 +49,7 @@ img{
 	justify-content: center;
 	position: relative;
 }
-.header__items{display: flex;justify-content: center;position: relative;}
+.header__items{display: flex;justify-content: center;position: relative;transition: all 0.5s ease 0s;}
 .headItem {
 	display: flex;
 	height: 100%;
@@ -86,7 +86,8 @@ img{
 	grid-area: main;
 	display: flex;
 	justify-content: center;
-	color: #455866;
+	color:#866;
+	background-color: rgba(254,144,144, 0.1);
 }
 
 .container {
@@ -246,10 +247,11 @@ img{
 	.header{align-items: center;justify-content: space-around;}
 	body.lock{overflow: hidden;}
 	.header__items.active{
+		overflow: auto;
 		position: fixed;top: 100px;
 		width: 100%;background-color: #fff;z-index: 3;height: 100%;
 		display: grid;
-		grid-template: 200px 200px / 33% 33% 33%;
+		grid-template: 30% 30%/ 33% 33% 33%;
 		.headItem{display: block;text-align: center;}
 	}
 }

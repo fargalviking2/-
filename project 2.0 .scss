@@ -389,7 +389,6 @@ button:hover{
 @media(max-width: 960px){
 	.slider{display: none;}
 	.otzuvContent2{display: flex;}
-	.headItem{display: none;}
 	.container{
 		width: 100%;
 		max-width: 760px;
@@ -475,14 +474,16 @@ button:hover{
 	.header{align-items: center;justify-content: space-around;}
 	body.lock{overflow: hidden;}
 	.header__items.active{
+		overflow: auto;
 		position: fixed;top: 100px;
 		width: 100%;background-color: #fff;z-index: 3;height: 100%;
 		display: grid;
-		grid-template: 200px 200px / 33% 33% 33%;
+		grid-template: 30% 30% / 33% 33% 33%;
 		.headItem{display: block;text-align: center;}
 	}
 }
 @media(max-width: 770px){
+	.title2{padding-left: 10px;padding-right: 10px;}
 	.container{max-width: 550px;}
 	.productsCol1{display: none;}
 	.IconsCol2{display: none;}

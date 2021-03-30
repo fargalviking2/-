@@ -1,0 +1,66 @@
+@import "../zerostyle.scss";
+
+$maxWidth: 1920;
+$maxWigthContainer:1170;
+
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+	$addSize: $startSize - $minSize;
+	@if $type==1 {
+		//только если меньше контейнера
+		#{$property}: $startSize + px;
+		@media (max-width: #{$maxWidthContainer + px}){
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+		}
+	} @else if $type==2 {
+		#{$property}: $startSize + px;
+		@media (min-width: #{$maxWidthContainer + px}) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+		}
+	} @else {
+		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+	}
+}
+
+@import "../header vs footer/header.scss";
+@import "../header vs footer/footer.scss";
+
+.wrapper {
+	font-family: Verdana, Geneva, sans-serif;
+	width: 100%;
+	min-height: 100%;
+	display: grid;
+	grid-template: minmax(100px, auto) 1fr minmax(220px, auto) / 1fr;
+	grid-template-areas: "header" "main" "footer";
+	overflow-x: hidden;
+}
+img{height: 50px;width: 50px;border-radius: 50%;
+object-fit:cover;}
+.main {width: 100%; color:#866;background-color: rgba(254,144,144, 0.1);}
+.title {font-size: 40px;margin: 80px auto;text-align: center;}
+.location {display: flex;}
+.map {flex: 1 1 60%;;padding: 30px 0;}
+.communications {flex: 1 1 40%;margin:  30px 0; background-color:#cccccc;padding: 50px;}
+.com__title {font-size: 21px;margin-bottom: 20px;}
+.communications__li {margin: 10px 0;}
+li:before{position: absolute;content: '';width: 10px;height: 10px;border-radius: 50%;background-color: #666;margin-top: 5px;}
+p{padding: 0 20px;}
+.joinUs {margin: 25px 0;font-size: 21px;}
+.rowIcons {
+}
+.icon {
+}
+@media (max-width: 1400px) {
+	.location{padding: 10px;flex-direction:column;}
+	.map{flex: 1 1 100%;}
+	.communications{flex: 1 1 100%;}
+}
+@media(max-width: 800px) {
+	.title {font-size: 24px;margin: 40px;}
+	.map{margin-top: -30px;}
+	
+	
+}
+@media(max-width: 600px) {
+	.communications{padding: 20px;}
+	img{height: 35px;width: 35px;}
+}

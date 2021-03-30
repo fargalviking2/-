@@ -522,8 +522,6 @@ button:hover {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
-  .headItem {
-    display: none; }
   .container {
     width: 100%;
     max-width: 760px;
@@ -637,6 +635,7 @@ button:hover {
   body.lock {
     overflow: hidden; }
   .header__items.active {
+    overflow: auto;
     position: fixed;
     top: 100px;
     width: 100%;
@@ -645,14 +644,17 @@ button:hover {
     height: 100%;
     display: -ms-grid;
     display: grid;
-    -ms-grid-rows: 200px 200px;
+    -ms-grid-rows: 30% 30%;
     -ms-grid-columns: 33% 33% 33%;
-    grid-template: 200px 200px / 33% 33% 33%; }
+    grid-template: 30% 30% / 33% 33% 33%; }
     .header__items.active .headItem {
       display: block;
       text-align: center; } }
 
 @media (max-width: 770px) {
+  .title2 {
+    padding-left: 10px;
+    padding-right: 10px; }
   .container {
     max-width: 550px; }
   .productsCol1 {

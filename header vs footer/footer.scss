@@ -1,0 +1,62 @@
+
+.footer {
+	background-color: #cccccc;
+	grid-area: footer;
+	display: flex;
+	justify-content: space-around;
+}
+.footer__items{
+	width: 100%;
+	display: flex;justify-content: space-around;
+	padding: 20px 30px 20px 50px;
+}
+.footLogoText {
+	margin: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0px 0px 80px 0px;
+}
+.footLogo {
+	background: url(../img/логотип.png) no-repeat round;
+	width: 300px;
+	height: 60px;
+	margin: 0px 0px;}
+.LogoText {
+	color:#455866;
+	padding: 65px 0px 0px 0px;
+	@include adaptiv-value("font-size", 24, 16, 0);
+}
+.footCol {
+	margin: 37px 20px 20px 20px;
+	display: flex;
+	flex-direction:column;
+
+}
+
+.colText {
+	color:#455866;
+	@include adaptiv-value("font-size", 30, 20, 0);
+	margin: 0px 0 15px 0;
+}
+.colLink {
+	margin: 10px 0 0px 0;
+	font-size: 20px;
+	color:#0e0e0e;
+	&:hover{text-decoration: underline;}
+}
+@media (max-width: 1100px){
+	.footer__items{
+		display: grid;
+		grid-template: 80px 170px / 1fr 1fr 1fr;
+	}
+	.footLogoText{grid-column: 1 / 4;}
+}
+@media(max-width: 500px){
+	.footer__items{
+		display: grid;
+		grid-template: 100px 100px 150px / 1fr 1fr ;
+	}
+	.footLogoText{grid-column: 1 / 3;}
+	.footCol1{grid-column: 1 / 3;margin-top: 0px;margin: 0 auto;}
+}

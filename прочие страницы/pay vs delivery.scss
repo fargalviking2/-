@@ -1,0 +1,66 @@
+@import "../zerostyle.scss";
+
+$maxWidth: 1920;
+$maxWigthContainer:1170;
+
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+	$addSize: $startSize - $minSize;
+	@if $type==1 {
+		//только если меньше контейнера
+		#{$property}: $startSize + px;
+		@media (max-width: #{$maxWidthContainer + px}){
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+		}
+	} @else if $type==2 {
+		#{$property}: $startSize + px;
+		@media (min-width: #{$maxWidthContainer + px}) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+		}
+	} @else {
+		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+	}
+}
+
+@import "../header vs footer/header.scss";
+@import "../header vs footer/footer.scss";
+
+.wrapper {
+	overflow-x: hidden;
+	font-family: Verdana, Geneva, sans-serif;
+	width: 100%;
+	min-height: 100%;
+	display: grid;
+	grid-template: minmax(100px, auto) 1fr minmax(220px, auto) / 1fr;
+	grid-template-areas: "header" "main" "footer";
+}
+.main {width: 100%;
+background-color: rgba(254,144,144, 0.1);}
+.bigImg {
+	background: url(../img/presents.jpg) bottom right / cover no-repeat;
+	width: 100%;
+	height: 400px;
+}
+.bigImg__content {width: 50%;padding: 5%;}
+.bigImg__text {color: #fff;font-size: 20px;margin: 20px 10px;}
+.bigImg__title {color: #fff;font-size: 32px;margin: 20px 10px;line-height: 1.2em;
+}
+.container {max-width: 1400px;margin: 0px auto;padding: 100px 10%;color:#866;}
+.payVariants {
+}
+.pay__title {margin: 50px 10px 20px 10px; font-size: 22px;text-decoration: underline;}
+.pay__text {margin: 10px;position: relative;}
+p{padding: 0 20px;}
+li:before{position: absolute;content: '';width: 10px;height: 10px;border-radius: 50%;background-color: #666;margin-top: 5px;}
+
+@media(max-width: 1000px) {
+	.bigImg__title{font-size: 26px;}
+}
+@media (max-width: 800px) {
+	.bigImg__content{width: 100%;}
+	.bigImg{height: 450px;}
+	.container{padding: 40px 10%;}
+}
+@media (max-width: 500px) {
+	.bigImg__text{font-size: 16px;}
+	.bigImg__title{font-size: 20px;}
+}
